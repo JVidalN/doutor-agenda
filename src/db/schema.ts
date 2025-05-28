@@ -75,10 +75,10 @@ export const verificationsTable = pgTable("verifications", {
 
 export const usersToClinicsTable = pgTable("users_to_clinics", {
   userId: text("user_id")
-    .references(() => usersTable.id)
+    .references(() => usersTable.id, { onDelete: "cascade" })
     .notNull(),
   clinicId: uuid("clinic_id")
-    .references(() => clinicsTable.id)
+    .references(() => clinicsTable.id, { onDelete: "cascade" })
     .notNull(),
   createdAt: timestamp("created_at").defaultNow().notNull(),
   updatedAt: timestamp("updated_at")
