@@ -1,6 +1,7 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+// import { GoogleIcon } from "better-auth/ui";
 import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
@@ -65,6 +66,14 @@ export default function LoginForm() {
       },
     );
   }
+
+  async function onGoogleSignIn() {
+    await authClient.signIn.social({
+      provider: "google",
+      callbackURL: "/dashboard",
+      scopes: ["email", "profile"],
+    });
+  }
   return (
     <Card>
       <Form {...form}>
@@ -106,17 +115,28 @@ export default function LoginForm() {
             />
           </CardContent>
           <CardFooter>
-            <Button
-              type="submit"
-              className="w-full"
-              disabled={form.formState.isSubmitting}
-            >
-              {form.formState.isSubmitting ? (
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              ) : (
-                "Entrar"
-              )}
-            </Button>
+            <div className="flex w-full flex-col gap-2">
+              <Button
+                type="submit"
+                className="w-full"
+                disabled={form.formState.isSubmitting}
+              >
+                {form.formState.isSubmitting ? (
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                ) : (
+                  "Entrar"
+                )}
+              </Button>
+              <Button
+                variant="outline"
+                className="w-full"
+                onClick={onGoogleSignIn}
+                type="button"
+              >
+                {/* <Google className="h-4 w-4" /> */}
+                Entrar com Google
+              </Button>
+            </div>
           </CardFooter>
         </form>
       </Form>
