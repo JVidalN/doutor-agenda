@@ -1,8 +1,8 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-// import { GoogleIcon } from "better-auth/ui";
 import { Loader2 } from "lucide-react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
@@ -133,7 +133,12 @@ export default function LoginForm() {
                 onClick={onGoogleSignIn}
                 type="button"
               >
-                {/* <Google className="h-4 w-4" /> */}
+                <Image
+                  src="/google-icon/google-48.svg"
+                  alt="Logo"
+                  width={24}
+                  height={24}
+                />
                 Entrar com Google
               </Button>
             </div>
