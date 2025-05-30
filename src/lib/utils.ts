@@ -16,3 +16,5 @@ export const formatCurrencyInCents = (value: number) => {
     currency: "BRL",
   }).format(value / 100);
 };
+export const capitalizeFirst = (str: string): string =>
+  str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
