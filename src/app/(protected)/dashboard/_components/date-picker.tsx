@@ -54,10 +54,10 @@ export function DatePicker({
             <CalendarIcon />
             {date?.from ? (
               date.to ? (
-                <>
+                <div>
                   {dayjs(date.from).format("MMM DD, YYYY")} -{" "}
                   {dayjs(date.to).format("MMM DD, YYYY")}
-                </>
+                </div>
               ) : (
                 dayjs(date.from).format("MMM DD, YYYY")
               )
