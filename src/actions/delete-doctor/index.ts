@@ -6,9 +6,9 @@ import { headers } from "next/headers";
 import { z } from "zod";
 
 import { db } from "@/db";
-import { actionClient } from "@/db/next-safe-action";
 import { doctorsTable } from "@/db/schema";
 import { auth } from "@/lib/auth";
+import { actionClient } from "@/lib/next-safe-action";
 
 export const deleteDoctor = actionClient
   .schema(

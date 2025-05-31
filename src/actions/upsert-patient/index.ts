@@ -4,7 +4,7 @@ import { revalidatePath } from "next/cache";
 import { headers } from "next/headers";
 
 import { db } from "@/db";
-import { actionClient } from "@/db/next-safe-action";
+import { actionClient } from "@/lib/next-safe-action";
 import { patientsTable } from "@/db/schema";
 import { auth } from "@/lib/auth";
 
