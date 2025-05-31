@@ -44,6 +44,10 @@ export default async function Dashboard({ searchParams }: DashboardProps) {
     redirect("/clinic-form");
   }
 
+  if (!session.user.plan) {
+    redirect("/new-subscription");
+  }
+
   const { from, to } = await searchParams;
   if (!from || !to) {
     redirect(
