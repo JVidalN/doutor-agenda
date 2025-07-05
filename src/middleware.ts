@@ -4,10 +4,11 @@ import { NextResponse } from "next/server";
 
 export function middleware(request: NextRequest) {
   const sessionCookie = getSessionCookie(request);
+  console.log("sessionCookie", sessionCookie);
 
-  if (!sessionCookie) {
-    return NextResponse.redirect(new URL("/authentication", request.url));
-  }
+  // if (!sessionCookie) {
+  //   return NextResponse.redirect(new URL("/authentication", request.url));
+  // }
 
   return NextResponse.next();
 }
